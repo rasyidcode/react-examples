@@ -1,0 +1,11 @@
+.text-red {
+    color: red;
+    font-weight: bold;
+}
+
+.profile-image {
+    /* width: 150px;
+    height: 150px; */
+    border-radius: 50%;
+    object-fit: cover;
+}
