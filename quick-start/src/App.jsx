@@ -50,7 +50,7 @@ function UserProfile() {
     const [count, setCount] = useState(0)
 
     const data = {
-        name: 'John Doe',
+        name: 'John Doe 4',
         work: 'Software Developer',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/1200px-Donald_Trump_official_portrait.jpg',
         activeProjects: [
