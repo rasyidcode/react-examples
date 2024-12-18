@@ -53,6 +53,7 @@ function Board({ xIsNext, squares, onPlay }) {
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)])
   const [currentMove, setCurrentMove] = useState(0)
+  const [isAsc, setIsAsc] = useState(true)
   const xIsNext = currentMove % 2 === 0
   const currentSquares = history[currentMove]
 
@@ -66,10 +67,20 @@ export default function Game() {
     setCurrentMove(nextMove)
   }
 
+  function handleToggleSort() {
+    if (isAsc) {
+    }
+    setIsAsc(!isAsc)
+  }
+
   const moves = history.map((squares, move) => {
     let description
     if (move > 0) {
-      description = 'Go to move #' + move
+      if (move === currentMove) {
+        description = 'You are at move #' + move
+      } else {
+        description = 'Go to move #' + move
+      }
     } else {
       description = 'Go to game start'
     }
@@ -88,6 +99,7 @@ export default function Game() {
       </div>
       <div className="game-info">
         <ol>{moves}</ol>
+        <button onClick={handleToggleSort}>Sort Move: {isAsc ? 'Ascending' : 'Descending'}</button>
       </div>
     </div>
   )
