@@ -1,16 +1,25 @@
-import { useState } from "react"
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 
 function ProductRow({ product }) {
-  const name = product.stocked ? product.name : <span style={{
-    color: 'red'
-  }}>{product.name}</span>
+  const name = product.stocked ? (
+    product.name
+  ) : (
+    <span
+      style={{
+        color: "red",
+      }}
+    >
+      {product.name}
+    </span>
+  );
 
   return (
     <tr>
       <td>{name}</td>
       <td>{product.price}</td>
     </tr>
-  )
+  );
 }
 
 function ProductCategoryRow({ category }) {
@@ -18,31 +27,41 @@ function ProductCategoryRow({ category }) {
     <tr>
       <th colSpan="2">{category}</th>
     </tr>
-  )
+  );
 }
 
-function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
+function SearchBar({
+  filterText,
+  inStockOnly,
+  onFilterTextChange,
+  onInStockOnlyChange,
+}) {
   return (
     <form>
-      <input type="text" placeholder="Search..." value={filterText} onChange={(e) => onFilterTextChange(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Search..."
+        value={filterText}
+        onChange={(e) => onFilterTextChange(e.target.value)}
+      />
       <label>
-        <input type="checkbox" checked={inStockOnly} onChange={(e) => onInStockOnlyChange(e.target.checked)} />
-        {' '}
+        <input
+          type="checkbox"
+          checked={inStockOnly}
+          onChange={(e) => onInStockOnlyChange(e.target.checked)}
+        />{" "}
         Only show products in stock
       </label>
     </form>
-  )
+  );
 }
 
 function ProductTable({ products, filterText, inStockOnly }) {
-  const rows = []
-  let lastCategory = null
+  const rows = [];
+  let lastCategory = null;
 
   products.forEach((product) => {
-    if (
-      product.name.toLowerCase().indexOf(
-        filterText.toLowerCase()
-      ) === -1) {
+    if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return;
     }
 
@@ -54,15 +73,14 @@ function ProductTable({ products, filterText, inStockOnly }) {
       rows.push(
         <ProductCategoryRow
           key={product.category}
-          category={product.category} />
-      )
+          category={product.category}
+        />
+      );
     }
 
-    rows.push(
-      <ProductRow product={product} key={product.name} />
-    )
-    lastCategory = product.category
-  })
+    rows.push(<ProductRow product={product} key={product.name} />);
+    lastCategory = product.category;
+  });
 
   return (
     <table>
@@ -72,16 +90,14 @@ function ProductTable({ products, filterText, inStockOnly }) {
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>
-        {rows}
-      </tbody>
+      <tbody>{rows}</tbody>
     </table>
-  )
+  );
 }
 
 function FilterableProductTable({ products }) {
-  const [filterText, setFilterText] = useState('')
-  const [inStockOnly, setInStockOnly] = useState(false)
+  const [filterText, setFilterText] = useState("");
+  const [inStockOnly, setInStockOnly] = useState(false);
 
   return (
     <div>
@@ -89,11 +105,16 @@ function FilterableProductTable({ products }) {
         filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}
-        onInStockOnlyChange={setInStockOnly} />
+        onInStockOnlyChange={setInStockOnly}
+      />
 
-      <ProductTable products={products} filterText={filterText} inStockOnly={inStockOnly} />
+      <ProductTable
+        products={products}
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+      />
     </div>
-  )
+  );
 }
 
 const PRODUCTS = [
@@ -102,11 +123,9 @@ const PRODUCTS = [
   { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
   { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
   { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
-  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
-]
+  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" },
+];
 
 export default function App() {
-  return (
-    <FilterableProductTable products={PRODUCTS} />
-  )
+  return <FilterableProductTable products={PRODUCTS} />;
 }
