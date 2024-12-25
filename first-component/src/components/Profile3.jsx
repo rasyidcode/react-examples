@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import Avatar from "./Avatar2";
-
 function Card({ children }) {
   return <div className="card">{children}</div>;
 }
@@ -8,15 +6,16 @@ function Card({ children }) {
 export default function Profile() {
   return (
     <Card>
-      <Avatar
-        person={{
-          name: "Dawyne Johnson",
-          imageId: "tbn:ANd9GcQCM12Mcttv-ewdEIeSMI4iUC3btdnDX3fD2w&s",
+      <h1
+        style={{
+          color: "red",
+          fontSize: "50px",
+          fontWeight: "bold",
+          padding: "20px",
         }}
-        size={150}
-        isSepia={true}
-        thickBorder={true}
-      />
+      >
+        Dawyne Johnson
+      </h1>
     </Card>
   );
 }
