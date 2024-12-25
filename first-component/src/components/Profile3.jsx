@@ -15,33 +15,10 @@ function Avatar({ person, size = 100, isSepia = false, thickBorder = false }) {
   );
 }
 
-export default function Profile() {
+export default function Profile(props) {
   return (
     <div>
-      <Avatar
-        person={{
-          name: "Dawyne Johnson",
-          imageId: "tbn:ANd9GcQCM12Mcttv-ewdEIeSMI4iUC3btdnDX3fD2w&s",
-        }}
-        isSepia={true}
-      />
-      <Avatar
-        person={{
-          name: "Dawyne Johnson #2",
-          imageId: "tbn:ANd9GcTyrNBlSrjGN8asUF7CmvEfTZa1yGWyLnuYrA&s",
-        }}
-        size={80}
-        thickBorder={true}
-      />
-      <Avatar
-        person={{
-          name: "Dawyne Johnson #3",
-          imageId: "tbn:ANd9GcTmSyvzFUtbiyqWwZvi2Na6OB7qeOj5Cwavlg&s",
-        }}
-        size={50}
-        isSepia={true}
-        thickBorder={true}
-      />
+      <Avatar {...props} />
     </div>
   );
 }
