@@ -91,7 +91,7 @@ body > div > div {
   margin: 0;
 } */
 
-.card {
+/* .card {
   width: fit-content;
   margin: 5px;
   padding: 5px;
@@ -104,7 +104,33 @@ body > div > div {
 .avatar {
   margin: 20px;
   border-radius: 50%;
-  /* height: 90px;
-  width: 90px; */
+  height: 90px;
+  width: 90px;
   object-fit: cover;
+}
+ */
+
+.avatar {
+  margin: 5px;
+  border-radius: 50%;
+  min-height: 70px;
+}
+.profile {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 10px;
+}
+h1,
+h2 {
+  margin: 5px;
+}
+h1 {
+  margin-bottom: 10px;
+}
+ul {
+  padding: 0px 10px 0px 20px;
+}
+li {
+  margin: 5px;
 }
