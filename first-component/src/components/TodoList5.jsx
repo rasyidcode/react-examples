@@ -1,4 +1,4 @@
-import { getImageURL } from "./utils";
+import { getImageURL } from "../utils";
 
 const person = {
   name: "John Cena",
