@@ -91,7 +91,7 @@ body > div > div {
   margin: 0;
 } */
 
-.card {
+/* .card {
   width: fit-content;
   margin: 5px;
   padding: 5px;
@@ -100,11 +100,11 @@ body > div > div {
   border: 1px solid #aaa;
   border-radius: 20px;
   background: #fff;
-}
+} */
 .avatar {
   margin: 20px;
   border-radius: 50%;
-  height: 90px;
-  width: 90px;
+  /* height: 90px;
+  width: 90px; */
   object-fit: cover;
 }
