@@ -51,7 +51,7 @@ ul {
   height: 90px;
 } */
 
-.intro {
+/* .intro {
   background-image: linear-gradient(
     to left,
     violet,
@@ -71,4 +71,18 @@ ul {
 .summary {
   padding: 20px;
   border: 10px solid gold;
+} */
+
+body {
+  padding: 0;
+  margin: 0;
+}
+body > div > div {
+  padding: 20px;
+}
+.avatar {
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
 }
