@@ -1,5 +1,5 @@
-const baseURL = "https://encrypted-tbn0.gstatic.com";
-const imagePath = "/images";
+import { getImageURL } from "./utils";
+
 const person = {
   name: "John Cena",
   imageQuery: "tbn:ANd9GcSLD0WJi3ePhxARZFzZBxEe92XxAk4ALD_qig&s",
@@ -13,11 +13,7 @@ export default function TodoList() {
   return (
     <div style={person.theme}>
       <h1>{person.name}&apos;s Todos</h1>
-      <img
-        className="avatar"
-        src={`${baseURL}${imagePath}?q=${person.imageQuery}`}
-        alt={person.name}
-      />
+      <img className="avatar" src={getImageURL(person)} alt={person.name} />
       <ul>
         <li>Improve the videophone</li>
         <li>Prepare aeronautics lectures</li>
