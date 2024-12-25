@@ -46,4 +46,7 @@ ul {
   padding-inline-start: 20px;
 }
 
-img { margin: 0 10px 10px 0; height: 90px; }
+/* img { margin: 0 10px 10px 0; height: 90px; } */
+img {
+  height: 90px;
+}
