@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Avatar({ person, size }) {
+function Avatar({ person, size = 100 }) {
   return (
     <img
       className="avatar"
@@ -19,7 +19,6 @@ export default function Profile() {
           name: "Dawyne Johnson",
           imageId: "tbn:ANd9GcQCM12Mcttv-ewdEIeSMI4iUC3btdnDX3fD2w&s",
         }}
-        size={100}
       />
       <Avatar
         person={{
