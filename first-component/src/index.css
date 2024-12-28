@@ -110,7 +110,7 @@ body > div > div {
 }
  */
 
-.avatar {
+/* .avatar {
   margin: 5px;
   border-radius: 50%;
   min-height: 70px;
@@ -133,4 +133,9 @@ ul {
 }
 li {
   margin: 5px;
+} */
+
+.avatar {
+  margin: 20px;
+  border-radius: 50%;
 }

@@ -12,3 +12,12 @@ export function getImageUrl(imageId, size = 's') {
     '.jpg'
   );
 }
+
+export function getImageUrl2(person, size = 's') {
+  return (
+    'https://i.imgur.com/' +
+    person.imageId +
+    size +
+    '.jpg'
+  );
+}
