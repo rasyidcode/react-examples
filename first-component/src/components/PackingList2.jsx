@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 function Item({ name, isPacked }) {
-  return (
-    <li className="item">
-      {name} {isPacked && "✅"}
-    </li>
-  );
+  let itemContent = name;
+  if (isPacked) {
+    itemContent = name + "✅";
+  }
+  return <li className="item">{itemContent}</li>;
 }
 
 export default function PackingList2() {
