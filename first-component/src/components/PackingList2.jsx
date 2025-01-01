@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 function Item({ name, isPacked }) {
   return (
-    <li className="item">{isPacked ? <del>{name + " ✅"}</del> : name}</li>
+    <li className="item">
+      {name} {isPacked && "✅"}
+    </li>
   );
 }
 
