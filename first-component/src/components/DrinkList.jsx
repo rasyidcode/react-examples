@@ -1,27 +1,28 @@
 /* eslint-disable react/prop-types */
-function Details({ plant, content, age }) {
-  return (
-    <dl>
-      <dt>Part of plant</dt>
-      <dd>{plant}</dd>
-      <dt>Caffeine content</dt>
-      <dd>{content}</dd>
-      <dt>Age</dt>
-      <dd>{age}</dd>
-    </dl>
-  );
-}
-
 function Drink({ name }) {
-  let details = <Details plant="bean" content="80–185 mg/cup" age="1,000+ years" />;
-  if (name == "tea") {
-    details = <Details plant="leaf" content="15–70 mg/cup" age="4,000+ years" />;
+  let plant, caffeine, age;
+
+  if (name === "tea") {
+    plant = "leaf";
+    caffeine = "15–70 mg/cup";
+    age = "4,000+ years";
+  } else if (name === "coffee") {
+    plant = "bean";
+    caffeine = "80–185 mg/cup";
+    age = "1,000+ years";
   }
 
   return (
     <section>
       <h1>{name}</h1>
-      {details}
+      <dl>
+        <dt>Part of plant</dt>
+        <dd>{plant}</dd>
+        <dt>Caffeine content</dt>
+        <dd>{caffeine}</dd>
+        <dt>Age</dt>
+        <dd>{age}</dd>
+      </dl>
     </section>
   );
 }
