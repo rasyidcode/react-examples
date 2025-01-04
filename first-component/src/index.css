@@ -171,3 +171,13 @@ li {
 img { width: 100px; height: 100px; border-radius: 50%; }
 h1 { font-size: 22px; }
 h2 { font-size: 20px; } */
+
+ul { list-style-type: none; padding: 0px 10px; }
+li { 
+  margin-bottom: 10px; 
+  display: grid; 
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+img { width: 100px; height: 100px; border-radius: 50%; }
