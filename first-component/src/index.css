@@ -181,3 +181,16 @@ li {
   align-items: center;
 }
 img { width: 100px; height: 100px; border-radius: 50%; } */
+
+body {
+  text-align: center;
+}
+p {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+}
+hr {
+  margin: 0 120px 0 120px;
+  border: 1px dashed #45c3d8;
+}
