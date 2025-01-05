@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./components/TeaSet";
+import App from "./components/TeaGathering";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
