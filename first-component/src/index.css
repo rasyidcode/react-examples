@@ -194,3 +194,16 @@ hr {
   margin: 0 120px 0 120px;
   border: 1px dashed #45c3d8;
 } */
+
+body > * {
+  width: 100%;
+  height: 100%;
+}
+.day {
+  background: #fff;
+  color: #222;
+}
+.night {
+  background: #222;
+  color: #fff;
+}
