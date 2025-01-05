@@ -1,4 +1,4 @@
-import Profile from "./Profile8";
+import Profile from "./Profile9";
 
 export default function ProfileSection() {
   return (
