@@ -208,7 +208,7 @@ hr {
   color: #fff;
 } */
 
-.avatar {
+/* .avatar {
   margin: 5px;
   border-radius: 50%;
 }
@@ -224,4 +224,18 @@ hr {
 h1 {
   margin: 5px;
   font-size: 18px;
+} */
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  float: left;
+  margin: 5px;
+  margin-bottom: 20px;
+  height: 70px;
+  height: 100px;
 }
