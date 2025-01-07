@@ -225,7 +225,7 @@ h1 {
   margin: 5px;
   font-size: 18px;
 } */
-ul {
+/* ul {
   margin: 0;
   list-style-type: none;
 }
@@ -238,4 +238,18 @@ li {
   margin-bottom: 20px;
   height: 70px;
   height: 100px;
+} */
+
+.fancy {
+  font-family: "Georgia";
+}
+.title {
+  color: #007aa3;
+  text-decoration: underline;
+}
+.cursive {
+  font-style: italic;
+}
+.small {
+  font-size: 10px;
 }
