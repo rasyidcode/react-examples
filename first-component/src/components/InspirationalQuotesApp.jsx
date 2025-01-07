@@ -1,6 +1,6 @@
 import Copyright from "./Copyright";
 import FancyText from "./FancyText";
-import InspirationGenerator from "./InspirationGenerator";
+import InspirationGenerator from "./InspirationGenerator2";
 
 export default function InspirationalQuotesApp() {
   return (
