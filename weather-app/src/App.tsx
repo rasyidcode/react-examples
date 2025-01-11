@@ -5,12 +5,19 @@ import { Oval } from "react-loader-spinner";
 import "./App.css";
 import { KeyboardEvent, useState } from "react";
 import axios from "axios";
+import { Weather } from "./Types";
+
+type WeatherState = {
+  loading: boolean;
+  data: Weather | null;
+  error: boolean;
+};
 
 export default function App() {
   const [input, setInput] = useState("");
-  const [weather, setWeather] = useState({
+  const [weather, setWeather] = useState<WeatherState>({
     loading: false,
-    data: {},
+    data: null,
     error: false,
   });
 
@@ -34,7 +41,7 @@ export default function App() {
           setWeather({ data: res.data, loading: false, error: false });
         })
         .catch((error) => {
-          setWeather({ ...weather, data: {}, error: true });
+          setWeather({ ...weather, data: null, error: true });
           setInput("");
           console.log("error", error);
         });
@@ -112,7 +119,7 @@ export default function App() {
           <div className="date">{getTodayString()}</div>
           <div className="icon-temp">
             <img
-              src="https://openweathermap.org/img/wn/10d@2x.png"
+              src={`https://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`}
               alt={weather.data.weather[0].description}
             />
             {Math.round(weather.data.main.temp)}
