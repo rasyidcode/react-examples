@@ -1,15 +1,16 @@
-import { faFrown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Oval } from "react-loader-spinner";
 import "./App.css";
-import { KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import axios from "axios";
-import { Weather } from "./Types";
-import { getTodayString } from "./utils";
+import { Weather as WeatherType } from "./Types";
+import Error from "./Error";
+import ContentWrapper from "./ContentWrapper";
+import Weather from "./Weather";
+import SearchBar from "./SearchBar";
 
 type WeatherState = {
   loading: boolean;
-  data: Weather | null;
+  data: WeatherType | null;
   error: boolean;
 };
 
@@ -21,7 +22,7 @@ export default function App() {
     error: false,
   });
 
-  const search = async (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleInputKeyUp = async (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
       setInput("");
@@ -48,53 +49,33 @@ export default function App() {
     }
   };
 
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    setInput(event.target.value);
+  }
+
   return (
     <div className="app">
       <h1 className="app-title">Weather App</h1>
-      <div className="search-bar">
-        <input
-          type="text"
-          name="query"
-          placeholder="Enter city name..."
-          onChange={(e) => setInput(e.target.value)}
-          onKeyUp={search}
-        />
-      </div>
-      <div className="content">
+      <SearchBar
+        onInputChange={handleInputChange}
+        onInputKeyUp={handleInputKeyUp}
+      />
+      <ContentWrapper>
         {weather.loading && (
           <Oval visible={true} width={50} height={50} wrapperClass="loading" />
         )}
-        {weather.error && (
-          <span className="error-message">
-            <FontAwesomeIcon icon={faFrown} />
-            <span style={{ fontSize: "20px", marginLeft: "1rem" }}>
-              City not found
-            </span>
-          </span>
-        )}
+        {weather.error && <Error />}
         {weather && weather.data && weather.data.main && (
-          <div>
-            <div className="city-name">
-              <h2>
-                {weather.data.name}, {weather.data.sys.country}
-              </h2>
-            </div>
-            <div className="date">{getTodayString()}</div>
-            <div className="icon-temp">
-              <img
-                src={`https://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`}
-                alt={weather.data.weather[0].description}
-              />
-              {Math.round(weather.data.main.temp)}
-              <sup className="deg">°C</sup>
-            </div>
-            <div className="des-wind">
-              <p>{weather.data.weather[0].description.toUpperCase()}</p>
-              <p>Wind Speed: {weather.data.wind.speed}m/s</p>
-            </div>
-          </div>
+          <Weather
+            city={weather.data.name}
+            country={weather.data.sys.country}
+            windSpeed={weather.data.wind.speed}
+            description={weather.data.weather[0].description}
+            icon={weather.data.weather[0].icon}
+            temp={weather.data.main.temp}
+          />
         )}
-      </div>
+      </ContentWrapper>
     </div>
   );
 }
