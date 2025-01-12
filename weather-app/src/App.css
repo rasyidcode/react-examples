@@ -63,6 +63,7 @@ body {
   justify-content: center;
   border: 2px solid #eee;
   border-radius: 10px;
+  text-align: center;
 }
 
 .city-name {

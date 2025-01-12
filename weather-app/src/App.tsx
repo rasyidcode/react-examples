@@ -61,8 +61,8 @@ export default function App() {
         {weather.loading && (
           <Oval visible={true} width={50} height={50} wrapperClass="loading" />
         )}
-        {weather.error && <Error />}
-        {weather && weather.data && weather.data.main && (
+        {!weather.loading && weather.error && <Error />}
+        {!weather.loading && weather && weather.data && weather.data.main && (
           <Weather
             city={weather.data.name}
             country={weather.data.sys.country}
