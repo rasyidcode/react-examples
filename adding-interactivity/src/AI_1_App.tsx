@@ -7,7 +7,7 @@ export default function App() {
 function Button() {
   return (
     <button
-      onClick={function handleClick() {
+      onClick={() => {
         alert("You clicked me!");
       }}
     >
