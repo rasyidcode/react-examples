@@ -2,20 +2,35 @@ import { MouseEventHandler, ReactNode } from "react";
 import "./AI_4_App.css";
 
 function Button({
-  onSmash,
+  onClick,
   children,
 }: {
-  onSmash: MouseEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   children: ReactNode;
 }) {
-  return <button onClick={onSmash}>{children}</button>;
+  return <button onClick={onClick}>{children}</button>;
+}
+
+function Toolbar({
+  onPlayMovie,
+  onUploadImage,
+}: {
+  onPlayMovie: MouseEventHandler<HTMLButtonElement>;
+  onUploadImage: MouseEventHandler<HTMLButtonElement>;
+}) {
+  return (
+    <div>
+      <Button onClick={onPlayMovie}>Play Movie</Button>
+      <Button onClick={onUploadImage}>Upload Image</Button>
+    </div>
+  );
 }
 
 export default function App() {
   return (
-    <div>
-      <Button onSmash={() => alert("Playing!")}>Play Movie</Button>
-      <Button onSmash={() => alert("Uploading!")}>Upload Image</Button>
-    </div>
+    <Toolbar
+      onPlayMovie={() => alert("Playing!")}
+      onUploadImage={() => alert("Uploading!")}
+    />
   );
 }
