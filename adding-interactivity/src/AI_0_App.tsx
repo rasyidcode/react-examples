@@ -3,31 +3,34 @@ import "./AI_0_App.css";
 
 export default function App() {
   return (
-    <Toolbar onPlayMovie={() => alert('Playing')} onUploadImage={() => alert('Uploading')} />
-  )
+    <Toolbar
+      onPlayMovie={() => alert("Playing")}
+      onUploadImage={() => alert("Uploading")}
+    />
+  );
 }
 
-function Toolbar({ onPlayMovie, onUploadImage }: {
-  onPlayMovie: MouseEventHandler<HTMLButtonElement>
-  onUploadImage: MouseEventHandler<HTMLButtonElement>
+function Toolbar({
+  onPlayMovie,
+  onUploadImage,
+}: {
+  onPlayMovie: MouseEventHandler<HTMLButtonElement>;
+  onUploadImage: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
     <div>
-      <Button onClick={onPlayMovie}>
-        Play Movie
-      </Button>
-      <Button onClick={onUploadImage}>
-        Upload Image
-      </Button>
+      <Button onClick={onPlayMovie}>Play Movie</Button>
+      <Button onClick={onUploadImage}>Upload Image</Button>
     </div>
-  )
+  );
 }
 
-function Button({ onClick, children }: {
-  onClick: MouseEventHandler<HTMLButtonElement>,
-  children: ReactNode
+function Button({
+  onClick,
+  children,
+}: {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  children: ReactNode;
 }) {
-  return <button onClick={onClick}>
-    {children}
-  </button>
+  return <button onClick={onClick}>{children}</button>;
 }
