@@ -47,7 +47,7 @@ export default function App() {
                 {!isLoading && weather != null && <div className="weather">
                     <h3>{weather.city}, {weather.country}</h3>
                     <div className="weather-cond">
-                        <img src={`/src/assets/${weather.icon}@2x.png`} alt={weather.description} />
+                        <img src={`/assets/${weather.icon}@2x.png`} alt={weather.description} />
                         <span>{weather.temp}<sup>&#8451;</sup></span>
                     </div>
                     <div className="weather-detail">
