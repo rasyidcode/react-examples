@@ -15,7 +15,7 @@ type WeatherState = {
 };
 
 export default function App() {
-  const [input, setInput] = useState("");
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState<WeatherState>({
     loading: false,
     data: null,
@@ -24,33 +24,30 @@ export default function App() {
 
   const handleInputKeyUp = async (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      event.preventDefault();
-      setInput("");
+      setCity("");
       setWeather({ ...weather, loading: true });
       const url = "https://api.openweathermap.org/data/2.5/weather";
       const apiKey = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
       await axios
         .get(url, {
           params: {
-            q: input,
+            q: city,
             units: "metric",
             appid: apiKey,
           },
         })
         .then((res) => {
-          console.log("res", res);
           setWeather({ data: res.data, loading: false, error: false });
         })
-        .catch((error) => {
+        .catch(() => {
           setWeather({ ...weather, data: null, error: true });
-          setInput("");
-          console.log("error", error);
+          setCity("");
         });
     }
   };
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
-    setInput(event.target.value);
+    setCity(event.target.value);
   }
 
   return (
