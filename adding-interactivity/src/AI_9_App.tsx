@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./AI_8_App.css";
+import "./AI_9_App.css";
 
 function ColorSwitch({ onChangeColor }: { onChangeColor: () => void }) {
   return (
