@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./AI_11_App.css";
+import "./AI_12_App.css";
 import { sculptureList } from "./data";
 
 export default function Gallery() {
