@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AI_11_App.css";
 import { sculptureList } from "./data";
 
-export default function App() {
+function Gallery() {
   const [index, setIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
 
@@ -16,7 +16,7 @@ export default function App() {
 
   const sculpture = sculptureList[index];
   return (
-    <>
+    <section>
       <button onClick={handleClick}>Next</button>
       <h2>
         <i>{sculpture.name} </i>
@@ -30,6 +30,15 @@ export default function App() {
       </button>
       {showMore && <p>{sculpture.description}</p>}
       <img src={sculpture.url} alt={sculpture.alt} />
-    </>
+    </section>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="Page">
+      <Gallery />
+      <Gallery />
+    </div>
   );
 }
