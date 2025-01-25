@@ -37,10 +37,46 @@ router.post("/", async (req, res) => {
       level: req.body.level,
     };
     const result = await db.collection("records").insertOne(newDocument);
-    res.send(result).status(204);
+    res.send(result).status(201);
   } catch (err) {
     console.log(err);
-    res.status(500).send("Error adding record");
+    res.send("Error adding record").status(500);
+  }
+});
+
+// This section will help you update a record by id
+router.patch("/:id", async (req, res) => {
+  try {
+    const result = await db.collection("records").updateOne(
+      {
+        _id: new ObjectId(req.params.id),
+      },
+      {
+        $set: {
+          name: req.body.name,
+          position: req.body.position,
+          level: req.body.level,
+        },
+      }
+    );
+
+    res.send(result).status(200);
+  } catch (err) {
+    console.log(err);
+    res.send("Error updating record").status(500);
+  }
+});
+
+// This section will help you delete a record by id
+router.delete("/:id", async (req, res) => {
+  try {
+    const result = await db.collection("records").deleteOne({
+      _id: new ObjectId(req.params.id),
+    });
+    res.send(result).status(200);
+  } catch (err) {
+    console.error(err);
+    res.send("Error deleting record").status(500);
   }
 });
 

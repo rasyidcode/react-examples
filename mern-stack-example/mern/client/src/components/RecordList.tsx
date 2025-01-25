@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { Record } from "../type";
 
-type Record = {
-  _id: string;
-  name: string;
-  position: string;
-  level: string;
-};
-
-function RecordItem({ record }: { record: Record }) {
+function RecordItem({
+  record,
+  onDeleteRecord,
+}: {
+  record: Record;
+  onDeleteRecord: (id: string) => void;
+}) {
   return (
     <tr className="border-b border-gray-300 hover:bg-slate-100 [&_td]:p-4">
-      <td>Ahmad Jamil Al Rasyid</td>
-      <td>CEO</td>
-      <td>Executive</td>
+      <td>{record.name}</td>
+      <td>{record.position}</td>
+      <td style={{ textTransform: "capitalize" }}>{record.level}</td>
       <td>
         <div className="flex gap-4">
           <Link
@@ -26,6 +26,7 @@ function RecordItem({ record }: { record: Record }) {
           <button
             className="border border-red-600 text-sm font-medium hover:bg-red-400/80 rounded-md
             py-1 tracking-wider text-center w-16 bg-red-400 text-white cursor-pointer"
+            onClick={() => onDeleteRecord(record._id)}
           >
             Delete
           </button>
@@ -54,9 +55,19 @@ export default function RecordList() {
     return;
   }, [records.length]);
 
+  async function handleDeleteRecord(id: string) {
+    if (confirm("Are you sure want to delete this record?")) {
+      await fetch(`http://localhost:5050/records/${id}`, {
+        method: "DELETE",
+      });
+      const newRecords = records.filter((record) => record._id !== id);
+      setRecords(newRecords);
+    }
+  }
+
   return (
     <>
-      <h3 className="text-lg font-semibold p-4">Employee Records</h3>
+      <h3 className="text-lg font-semibold p-4 pl-0">Employee Records</h3>
       <table className="w-full border border-gray-300 rounded-lg">
         <thead>
           <tr className="border-b border-gray-300">
@@ -67,9 +78,19 @@ export default function RecordList() {
           </tr>
         </thead>
         <tbody className="[&_tr:last-child]:border-0">
-          {records.map((record) => (
-            <RecordItem key={record._id} record={record} />
-          ))}
+          {records.length > 0 &&
+            records.map((record) => (
+              <RecordItem
+                key={record._id}
+                record={record}
+                onDeleteRecord={handleDeleteRecord}
+              />
+            ))}
+          {records.length === 0 && (
+            <tr>
+              <td colSpan={4} className="px-4 py-2">No data</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </>

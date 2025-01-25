@@ -12,8 +12,8 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />}>
           <Route index element={<RecordList />} />
-          {/* <Route path="/edit/:id" element={<Record />} /> */}
-          <Route path="/create" element={<Form />} />
+          <Route path="/edit/:id" element={<Form />} />
+          <Route path="/new" element={<Form />} />
         </Route>
       </Routes>
     </BrowserRouter>
