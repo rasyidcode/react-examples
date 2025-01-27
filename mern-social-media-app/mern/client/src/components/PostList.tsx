@@ -30,7 +30,7 @@ function PostItem() {
         <img
           src="/assets/post/1.jpeg"
           alt="Post 1"
-          className="max-h-[500px] object-contain mt-2"
+          className="max-h-[500px] w-full object-cover mt-2"
         />
       </div>
       <div className="flex items-center">
