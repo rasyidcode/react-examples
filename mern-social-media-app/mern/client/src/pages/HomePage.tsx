@@ -1,5 +1,5 @@
-import CloseFriendList from "../components/CloseFriendList";
-import MenuList from "../components/MenuList";
+import Feed from "../components/Feed";
+import Sidebar from "../components/Sidebar";
 import TopBar from "../components/TopBar";
 
 export default function HomePage() {
@@ -7,15 +7,9 @@ export default function HomePage() {
     <>
       <TopBar />
       <div className="flex">
-        <div className="sticky overflow-y-auto h-screen w-80">
-          <div className="p-5 flex flex-col gap-6">
-            <MenuList />
-            <hr className="border-slate-300" />
-            <CloseFriendList />
-          </div>
-        </div>
-        <div className="flex-1">feed</div>
-        <div className="flex-1">friendlist</div>
+        <Sidebar />
+        <Feed />
+        <div className="hidden xl:flex md:w-96">friendlist</div>
       </div>
     </>
   );
