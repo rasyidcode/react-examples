@@ -1,0 +1,11 @@
+section div {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: start;
+}
+
+section div input {
+    flex: 1;
+}

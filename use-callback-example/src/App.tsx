@@ -1,20 +1,14 @@
-import { useCallback, useState } from "react";
-import Button from "./Button";
+import Example from "./Example";
+import Example2 from "./Example2";
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = useCallback(() => {
-    setCount((prevCount) => prevCount + 1);
-  }, []);
-
-  console.log("parent re-render");
-
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={handleClick}>Increment</button>
-      <Button onClick={handleClick} />
+      <h1>useCallback in React</h1>
+      <hr />
+      {/* <Example /> */}
+      <hr />
+      <Example2 />
     </>
   );
 }
