@@ -1,17 +1,20 @@
-import Example from "./pages/example/Example";
-import Example2 from "./Example2";
-import Example3 from "./Example3";
+import { Link, Outlet } from "react-router";
 
 export default function App() {
   return (
     <>
-      <h1>useCallback in React</h1>
+      <h1>useCallback() hook examples</h1>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/example">Example</Link></li>
+        <li><Link to="/example2">Example 2</Link></li>
+        <li><Link to="/example3">Example 3</Link></li>
+        <li><Link to="/example4">Example 4</Link></li>
+      </ul>
       <hr />
-      <Example />
-      <hr />
-      <Example2 />
-      <hr />
-      <Example3 />
+      <div>
+        <Outlet />
+      </div>
     </>
   );
 }

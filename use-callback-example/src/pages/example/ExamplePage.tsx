@@ -1,19 +1,19 @@
-import Example from "./Example";
-import Example2 from "./Example2";
+import Example from "./without/Counter";
+import Example2 from "./with/Example2";
 import "./ExamplePage.css";
 
 export default function ExamplePage() {
   return (
     <>
-      <h1>Example Page</h1>
+      <h2>Shopping Item</h2>
       <section>
-        <h2>Without useCallback</h2>
+        <h3>Without useCallback</h3>
         <div className="content">
           <Example />
         </div>
       </section>
       <section>
-        <h2>With useCallback</h2>
+        <h3>With useCallback</h3>
         <div className="content">
           <Example2 />
         </div>

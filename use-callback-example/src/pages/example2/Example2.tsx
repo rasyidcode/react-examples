@@ -3,7 +3,7 @@ import UserItem from "./UserItem";
 import "./Example2.css";
 
 export default function Example2() {
-  console.log("re-render parent");
+  console.log("Re-render Example2");
 
   const [query, setQuery] = useState("");
   const [users, setUsers] = useState<User[]>([]);
