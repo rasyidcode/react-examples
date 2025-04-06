@@ -1,4 +1,4 @@
-import Example from "./Example";
+import Example from "./pages/example/Example";
 import Example2 from "./Example2";
 import Example3 from "./Example3";
 
