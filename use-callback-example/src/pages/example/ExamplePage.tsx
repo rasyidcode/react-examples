@@ -1,5 +1,5 @@
 import Example from "./without/Counter";
-import Example2 from "./with/Example2";
+import Example2 from "./with/ShoppingItem";
 import "./ExamplePage.css";
 
 export default function ExamplePage() {
