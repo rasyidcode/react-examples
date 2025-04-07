@@ -1,0 +1,31 @@
+.shopping-item {
+  display: flex;
+  gap: 1rem;
+  max-width: 578px;
+  height: 90px;
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+.shopping-item__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.shopping-item__info-name {
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+.shopping-item__info-name p {
+  flex: 1;
+  margin: 0;
+}
+.shopping-item__info-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: end;
+}
+.shopping-item__info-actions-count {
+    display: flex;
+    gap: 2px;
+}

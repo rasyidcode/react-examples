@@ -1,6 +1,6 @@
-import Example from "./without/Counter";
-import Example2 from "./with/ShoppingItem";
 import "./ExamplePage.css";
+import ShoppingItem2 from "./with/ShoppingItem2";
+import ShoppingItem from "./without/ShoppingItem";
 
 export default function ExamplePage() {
   return (
@@ -9,13 +9,13 @@ export default function ExamplePage() {
       <section>
         <h3>Without useCallback</h3>
         <div className="content">
-          <Example />
+          <ShoppingItem />
         </div>
       </section>
       <section>
         <h3>With useCallback</h3>
         <div className="content">
-          <Example2 />
+          <ShoppingItem2 />
         </div>
       </section>
     </>
