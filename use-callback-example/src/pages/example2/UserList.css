@@ -1,4 +1,4 @@
-section div {
+.user-list2__search {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -6,6 +6,6 @@ section div {
   justify-content: start;
 }
 
-section div input {
+.user-list2__search input {
     flex: 1;
 }

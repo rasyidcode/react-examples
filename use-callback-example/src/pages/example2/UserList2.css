@@ -1,0 +1,11 @@
+.user-list__search {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.user-list__search input {
+    flex: 1;
+}

@@ -1,4 +1,4 @@
 export default function UserItem({ user }: { user: User }) {
-//   console.log(`Rendering user: ${user.name}`);
+  console.log(`re-render UserItem: ${user.name}`);
   return <li>{user.name}</li>;
 }

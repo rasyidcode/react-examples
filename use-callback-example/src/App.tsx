@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router";
+import "./App.css";
 
 export default function App() {
   return (
