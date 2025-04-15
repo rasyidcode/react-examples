@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Trivia Quiz</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .option {
+            margin: 5px 0
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="quiz-container">
+    <div id="question" class="question"></div>
+    <div id="options"></div>
+    <button id="next-btn" style="display: none">Next</button>
+    <div id="score" class="result"></div>
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                answer: "Paris"
+            },
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                answer: "4"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Venus", "Mars", "Jupiter"],
+                answer: "Mars"
+            }
+        ];
+
+        let current = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreEl = document.getElementById('score');
+
+        function loadQuestion() {
+            nextBtn.style.display = 'none';
+            scoreEl.textContent = '';
+            const q = questions[current];
+            questionEl.textContent = q.question;
+            optionsEl.innerHTML = '';
+            q.options.forEach((option) => {
+                const btn = document.createElement('button');
+                btn.textContent = option;
+                btn.className = 'option';
+                btn.onclick = () => checkAnswer(option)
+                optionsEl.appendChild(btn);
+            })
+        }
+
+        function checkAnswer(selected) {
+            const q = questions[current];
+            if (selected === q.answer) {
+                score++;
+                scoreEl.textContent = 'Correct!';
+            } else {
+                scoreEl.textContent = `Wrong! The answer was: ${q.answer}`;
+            }
+            document.querySelectorAll('.option').forEach((btn) => btn.disabled = true);
+            nextBtn.style.display = 'inline-block';
+        }
+
+        nextBtn.onclick = () => {
+            current++;
+            if (current < questions.length) {
+                loadQuestion();
+            } else {
+                showFinal();
+            }
+        }
+
+        function showFinal() {
+            questionEl.textContent = 'Quiz Finished!';
+            optionsEl.innerHTML = '';
+            scoreEl.textContent = `Your score: ${score} / ${questions.length}`
+            nextBtn.style.display = 'none';
+        }
+
+        loadQuestion();
+    </script>
+</div>
+</body>
+</html>
