@@ -1,16 +1,18 @@
 import {useEffect, useState, useRef} from 'react';
-import questions from './../public/questions.json';
+import questions from './questions.json';
 
-const ANSWERING_DURATION = 15000; // 15s
-const LOADING_DURATION = 1000;   // 1s
-const RESULT_DURATION = 5000;    // 5s
-const WAITING_DURATION = 4000;   // 4s
+const ANSWERING_DURATION = 10000; // 10s
+const LOADING_DURATION = 2000;   // 2s
+const RESULT_DURATION = 3000;    // 3s
+const WAITING_DURATION = 3000;   // 3s
+// const FULL_CYCLE = ANSWERING_DURATION + LOADING_DURATION + RESULT_DURATION + WAITING_DURATION
+// const START_TIME = new Date('2025-04-16T00:00:00Z')
 
-export default function App2(){
+export default function App2() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [phase, setPhase] = useState<'answering' | 'loading' | 'result' | 'waiting'>('answering');
     const [countdown, setCountdown] = useState(15);
-    const [selectedOption, setSelectedOption] = useState<number | null>(null);
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [showAnswer, setShowAnswer] = useState(false);
 
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,9 +73,9 @@ export default function App2(){
         }, 1000);
     };
 
-    const handleSelect = (i: number) => {
-        if (phase === 'answering') {
-            setSelectedOption(i);
+    const handleSelect = (opt: string) => {
+        if (phase === 'answering' && selectedOption === null) {
+            setSelectedOption(opt);
         }
     };
 
@@ -81,60 +83,59 @@ export default function App2(){
         <div style={{padding: '20px', maxWidth: '600px', margin: '0 auto', fontFamily: 'sans-serif'}}>
             <h2>Trivia Time!</h2>
 
-            {phase === 'waiting' ? (
-                <div style={{color: 'gray'}}>⏳ Next question starting soon...</div>
-            ) : (
-                <>
-                    <div>
-                        <strong>Time left:</strong> {countdown}s
-                    </div>
-                    <h3>{current.question}</h3>
-                    <ul style={{listStyle: 'none', padding: 0}}>
-                        {current.options.map((opt, i) => (
-                            <li
-                                key={i}
-                                onClick={() => handleSelect(i)}
-                                style={{
-                                    background:
-                                        showAnswer && i === current.answer
-                                            ? 'lightgreen'
-                                            : selectedOption === i
-                                                ? 'lightblue'
-                                                : 'white',
-                                    padding: '8px',
-                                    marginBottom: '4px',
-                                    border: '1px solid #ccc',
-                                    cursor: phase === 'answering' ? 'pointer' : 'default',
-                                    pointerEvents: phase === 'answering' ? 'auto' : 'none',
-                                }}
-                            >
-                                {opt}
-                            </li>
-                        ))}
-                    </ul>
+            <div>
+                <strong>Time left:</strong> {countdown}s
+            </div>
+            <h3>{current.question}</h3>
+            <ul style={{listStyle: 'none', padding: 0}}>
+                {current.options.map((opt, i) => (
+                    <li
+                        key={i}
+                        onClick={() => handleSelect(opt)}
+                        style={{
+                            background:
+                                showAnswer && opt === current.answer
+                                    ? 'lightgreen'
+                                    : selectedOption === opt
+                                        ? 'lightblue'
+                                        : 'white',
+                            padding: '8px',
+                            marginBottom: '4px',
+                            border: '1px solid #ccc',
+                            cursor: phase === 'answering' && selectedOption === null ? 'pointer' : 'default',
+                            pointerEvents: phase === 'answering' && selectedOption === null ? 'auto' : 'none',
+                            opacity: selectedOption !== null && selectedOption !== opt ? 0.6 : 1,
+                        }}
+                    >
+                        {opt}
+                    </li>
+                ))}
+            </ul>
 
-                    <div style={{marginTop: '10px'}}>
-                        {phase === 'loading' && (
-                            <span style={{color: 'gray'}}>Checking answer...</span>
-                        )}
+            <div style={{marginTop: '10px'}}>
+                {phase === 'answering' && (<span style={{color: 'gray'}}>Pick an answer...</span>)}
 
-                        {phase === 'result' && (
-                            selectedOption === current.answer ? (
-                                <span style={{color: 'green'}}>✅ Correct!</span>
-                            ) : selectedOption != null ? (
-                                <span style={{color: 'red'}}>
-                  ❌ Incorrect! Correct answer: <strong>{current.options[current.answer]}</strong>
+                {phase === 'waiting' && (<span style={{color: 'gray'}}>⏳ Next question starting soon...</span>)}
+
+                {phase === 'loading' && (
+                    <span style={{color: 'gray'}}>Checking answer...</span>
+                )}
+
+                {phase === 'result' && (
+                    selectedOption === current.answer ? (
+                        <span style={{color: 'green'}}>✅ Correct!</span>
+                    ) : selectedOption != null ? (
+                        <span style={{color: 'red'}}>
+                  ❌ Incorrect! Correct answer: <strong>{current.answer}</strong>
                 </span>
-                            ) : (
-                                <div style={{color: 'gray'}}>
-                                    ⏳ Time's up! <strong>No answer submitted.</strong><br/>
-                                    Correct answer: <strong>{current.options[current.answer]}</strong>
-                                </div>
-                            )
-                        )}
-                    </div>
-                </>
-            )}
+                    ) : (
+                        <div style={{color: 'gray'}}>
+                            ⏳ Time's up! <strong>No answer submitted.</strong><br/>
+                            Correct answer: <strong>{current.answer}</strong>
+                        </div>
+                    )
+                )}
+            </div>
         </div>
     );
 }
