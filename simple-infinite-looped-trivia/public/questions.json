@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "options": ["Berlin", "Madrid", "Paris", "Rome"],
+    "answer": "Paris"
+  },
+  {
+    "id": 2,
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Earth", "Venus", "Mars", "Jupiter"],
+    "answer": "Mars"
+  },
+  {
+    "id": 3,
+    "question": "Who wrote 'Hamlet'?",
+    "options": ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
+    "answer": "William Shakespeare"
+  },
+  {
+    "id": 4,
+    "question": "Which gas do plants absorb from the atmosphere?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "answer": "Carbon Dioxide"
+  },
+  {
+    "id": 5,
+    "question": "What is the largest ocean on Earth?",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+    "answer": "Pacific Ocean"
+  },
+  {
+    "id": 6,
+    "question": "How many continents are there on Earth?",
+    "options": ["5", "6", "7", "8"],
+    "answer": "7"
+  },
+  {
+    "id": 7,
+    "question": "Which country hosted the 2020 Summer Olympics?",
+    "options": ["China", "Brazil", "Japan", "Australia"],
+    "answer": "Japan"
+  },
+  {
+    "id": 8,
+    "question": "What is the hardest natural substance on Earth?",
+    "options": ["Gold", "Iron", "Diamond", "Quartz"],
+    "answer": "Diamond"
+  },
+  {
+    "id": 9,
+    "question": "In computing, what does 'CPU' stand for?",
+    "options": ["Central Process Unit", "Central Processing Unit", "Computer Power Unit", "Computer Processing Unit"],
+    "answer": "Central Processing Unit"
+  },
+  {
+    "id": 10,
+    "question": "What is the tallest mountain in the world?",
+    "options": ["K2", "Mount Everest", "Kilimanjaro", "Mont Blanc"],
+    "answer": "Mount Everest"
+  },
+  {
+    "id": 11,
+    "question": "Which famous scientist developed the theory of relativity?",
+    "options": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Nikola Tesla"],
+    "answer": "Albert Einstein"
+  },
+  {
+    "id": 12,
+    "question": "Which element has the chemical symbol 'O'?",
+    "options": ["Gold", "Oxygen", "Osmium", "Oxide"],
+    "answer": "Oxygen"
+  },
+  {
+    "id": 13,
+    "question": "What is the currency of Japan?",
+    "options": ["Yuan", "Won", "Ringgit", "Yen"],
+    "answer": "Yen"
+  },
+  {
+    "id": 14,
+    "question": "What year did World War II end?",
+    "options": ["1943", "1944", "1945", "1946"],
+    "answer": "1945"
+  },
+  {
+    "id": 15,
+    "question": "What is the name of the longest river in the world?",
+    "options": ["Amazon", "Nile", "Yangtze", "Mississippi"],
+    "answer": "Nile"
+  },
+  {
+    "id": 16,
+    "question": "Which country is known for inventing pizza?",
+    "options": ["Spain", "France", "Italy", "Greece"],
+    "answer": "Italy"
+  },
+  {
+    "id": 17,
+    "question": "Which artist painted the ceiling of the Sistine Chapel?",
+    "options": ["Michelangelo", "Da Vinci", "Raphael", "Donatello"],
+    "answer": "Michelangelo"
+  },
+  {
+    "id": 18,
+    "question": "What does 'HTTP' stand for?",
+    "options": ["HyperText Transfer Protocol", "HighTech Transfer Protocol", "HyperTool Text Protocol", "High Transfer Text Protocol"],
+    "answer": "HyperText Transfer Protocol"
+  },
+  {
+    "id": 19,
+    "question": "Which mammal lays eggs?",
+    "options": ["Whale", "Platypus", "Elephant", "Kangaroo"],
+    "answer": "Platypus"
+  },
+  {
+    "id": 20,
+    "question": "Which movie features the quote 'I'll be back'?",
+    "options": ["The Matrix", "Die Hard", "Terminator", "RoboCop"],
+    "answer": "Terminator"
+  }
+]
