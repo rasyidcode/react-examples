@@ -142,9 +142,7 @@ export default function DotaTriviaApp() {
                     ) : selectedOption != null ? (
                         <span style={{color: 'red', textTransform: 'uppercase'}}>Incorrect!</span>
                     ) : (
-                        <div style={{color: 'gray'}}>
-                            ⏳ Time's up! <strong>No answer submitted.</strong><br/>
-                        </div>
+                        <span style={{color: 'gray', textTransform: 'uppercase'}}>No answer submitted.</span>
                     )
                 )}
             </div>
