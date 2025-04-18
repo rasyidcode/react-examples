@@ -116,12 +116,12 @@ export default function DotaTriviaApp() {
                             }}
                             disabled={phase !== 'answering' || selectedOption !== null}>
                         <span>{['A', 'B', 'C', 'D'][i]}</span>
-                        {phase === 'result'
+                        {(phase === 'result' || phase === 'waiting')
                             && opt === currentQuestion.answer
                             && selectedOption !== null
                             && selectedOption === currentQuestion.answer
                             && <span>✅</span>}
-                        {phase === 'result'
+                        {(phase === 'result' || phase === 'waiting')
                             && opt === selectedOption
                             && selectedOption !== null
                             && selectedOption !== currentQuestion.answer
