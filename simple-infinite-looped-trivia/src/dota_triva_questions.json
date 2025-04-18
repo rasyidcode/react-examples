@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/antimage.png"
+    },
+    "options": [
+      "Anti-Mage",
+      "Phantom Assassin",
+      "Storm Spirit",
+      "Arc Warden"
+    ],
+    "answer": "Anti-Mage"
+  },
+  {
+    "id": 2,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/bounty_hunter.png"
+    },
+    "options": [
+      "Riki",
+      "Bounty Hunter",
+      "Invoker",
+      "Kunkka"
+    ],
+    "answer": "Bounty Hunter"
+  },
+  {
+    "id": 3,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/invoker.png"
+    },
+    "options": [
+      "Puck",
+      "Lina",
+      "Storm Spirit",
+      "Invoker"
+    ],
+    "answer": "Invoker"
+  },
+  {
+    "id": 4,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/bane.png"
+    },
+    "options": [
+      "Slark",
+      "Bane",
+      "Dazzle",
+      "Disruptor"
+    ],
+    "answer": "Bane"
+  },
+  {
+    "id": 5,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/dark_willow.png"
+    },
+    "options": [
+      "Sniper",
+      "Dark Willow",
+      "Tidehunter",
+      "Earthshaker"
+    ],
+    "answer": "Dark Willow"
+  },
+  {
+    "id": 6,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/jakiro.png"
+    },
+    "options": [
+      "Jakiro",
+      "Viper",
+      "Dragon Knight",
+      "Mars"
+    ],
+    "answer": "Jakiro"
+  },
+  {
+    "id": 7,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/kunkka.png"
+    },
+    "options": [
+      "Kunkka",
+      "Phantom Assassin",
+      "Invoker",
+      "Axe"
+    ],
+    "answer": "Kunkka"
+  },
+  {
+    "id": 8,
+    "question": {
+      "text": "What is the name of this hero?",
+      "content": "/earthshaker.png"
+    },
+    "options": [
+      "Bounty Hunter",
+      "Lion",
+      "Earthshaker",
+      "Anti-Mage"
+    ],
+    "answer": "Earthshaker"
+  }
+]

@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState, useRef, useCallback} from 'react';
 import questions from './questions.json';
 
 const ANSWERING_DURATION = 10000; // 10s
@@ -13,20 +13,12 @@ export default function App2() {
     const [phase, setPhase] = useState<'answering' | 'loading' | 'result' | 'waiting'>('answering');
     const [countdown, setCountdown] = useState(15);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
-    const [showAnswer, setShowAnswer] = useState(false);
 
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const current = questions[currentIndex];
 
-    useEffect(() => {
-        startPhase('answering');
-        return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
-        };
-    }, [currentIndex]);
-
-    const startPhase = (newPhase: typeof phase) => {
+    const startPhase = useCallback((newPhase: typeof phase) => {
         if (timerRef.current) clearTimeout(timerRef.current);
         setPhase(newPhase);
 
@@ -36,7 +28,6 @@ export default function App2() {
                 duration = ANSWERING_DURATION;
                 setCountdown(ANSWERING_DURATION / 1000);
                 setSelectedOption(null);
-                setShowAnswer(false);
                 tickCountdown(ANSWERING_DURATION / 1000);
                 break;
             case 'loading':
@@ -44,7 +35,6 @@ export default function App2() {
                 break;
             case 'result':
                 duration = RESULT_DURATION;
-                setShowAnswer(true);
                 break;
             case 'waiting':
                 duration = WAITING_DURATION;
@@ -62,7 +52,14 @@ export default function App2() {
                 setCurrentIndex((prev) => (prev + 1) % questions.length);
             }
         }, duration);
-    };
+    }, []);
+
+    useEffect(() => {
+        startPhase('answering');
+        return () => {
+            if (timerRef.current) clearTimeout(timerRef.current);
+        };
+    }, [currentIndex, startPhase]);
 
     const tickCountdown = (seconds: number) => {
         let counter = seconds;
@@ -82,7 +79,6 @@ export default function App2() {
     return (
         <div style={{padding: '20px', maxWidth: '600px', margin: '0 auto', fontFamily: 'sans-serif'}}>
             <h2>Trivia Time!</h2>
-
             <div>
                 <strong>Time left:</strong> {countdown}s
             </div>
@@ -94,7 +90,7 @@ export default function App2() {
                         onClick={() => handleSelect(opt)}
                         style={{
                             background:
-                                showAnswer && opt === current.answer
+                                phase === "result" && opt === current.answer
                                     ? 'lightgreen'
                                     : selectedOption === opt
                                         ? 'lightblue'
