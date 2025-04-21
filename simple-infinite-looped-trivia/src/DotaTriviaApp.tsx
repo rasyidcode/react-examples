@@ -3,15 +3,14 @@ import './DotaTriviaApp.css';
 import {useCallback, useEffect, useRef, useState} from "react";
 import {formatTime} from "./utils.ts";
 import questions from "./dota_triva_questions.json"
+import AnsweringCountdown from "./AnsweringCountdown.tsx";
 
-const ANSWERING_DURATION = 15000;
 const LOADING_DURATION = 2000;
 const RESULT_DURATION = 3000;
 const WAITING_DURATION = 10000;
 
 export default function DotaTriviaApp() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [countdown, setCountdown] = useState<number>(0);
     const [waitingCountdown, setWaitingCountdown] = useState<number>(0);
     const [phase, setPhase] = useState<'answering' | 'loading' | 'result' | 'waiting'>('answering');
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -58,16 +57,6 @@ export default function DotaTriviaApp() {
             }
         }, duration);
     }, []);
-
-    // noinspection DuplicatedCode
-    const tickCountdown = (seconds: number) => {
-        let counter = seconds;
-        const interval = setInterval(() => {
-            counter--;
-            setCountdown(counter);
-            if (counter <= 0) clearInterval(interval);
-        }, 1000);
-    };
 
     const tickWaitingCountdown = (seconds: number) => {
         let counter = seconds;
@@ -131,10 +120,7 @@ export default function DotaTriviaApp() {
                 ))}
             </div>
             <div className='dota-trivia-app__states'>
-                {phase === 'answering' && (<div>
-                    <h2>{formatTime(countdown)}</h2>
-                    <p>Time Remaining</p>
-                </div>)}
+                {phase === 'answering' && (<AnsweringCountdown />)}
                 {phase === 'loading' && (<span>Loading...</span>)}
                 {phase === 'result' && (
                     selectedOption === currentQuestion.answer ? (
